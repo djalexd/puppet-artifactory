@@ -10,14 +10,12 @@
 # Usage:
 #
 #   artifactory::repository::remote { 'central':
-#     key => 'central',
 #     url => 'http://repo1.maven.org/maven2'
 #   }
 #
 #
 #
 define artifactory::repository::remote(
-  $key,
   $url,
   $description                           = 'Some remote repository',
   $includes                              = '/**',

@@ -10,7 +10,6 @@
 # Usage:
 #
 #   artifactory::repository::virtual { 'all-remotes':
-#     key => 'all-remotes',
 #     repositories_ref = [
 #         'repo1', 'repo2', 'repo3'
 #     ]
@@ -19,7 +18,6 @@
 #
 #
 define artifactory::repository::virtual(
-  $key,
   $repositories_ref,
   $description                                        = 'Some virtual repository',
   $includes                                           = '/**',

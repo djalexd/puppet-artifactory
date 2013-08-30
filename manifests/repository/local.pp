@@ -1,6 +1,5 @@
 
 define artifactory::repository::local (
-    $key,
     $description    = 'Local repository',
     $includes       = '**/*',
     $layout         = 'maven-2-default',
