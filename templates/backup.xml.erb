@@ -1,0 +1,14 @@
+<backup>
+  <key><%= @name %></key>
+  <enabled><%= @present %></enabled>
+  <cronExp><%= @cron %></cronExp
+  <retentionPeriodHours><%= @retention %></retentionPeriodHours>
+  <createArchive>false</createArchive>
+  <excludedRepositories>
+  <% @excluded_repos.each do |repo| -%>
+    <repositoryRef><%= repo %></repositoryRef>
+  <% end -%>
+  </excludedRepositories>
+  <sendMailOnError><%= @send_mail_on_error %></sendMailOnError>
+  <excludeBuilds><%= @exclude_builds %></excludeBuilds>
+</backup>

@@ -19,9 +19,26 @@ class artifactory(
 	$number = 6,
 	$version = "2.6.1",
 	$contextroot = "repo",
-	$webapp_base = "/srv"
+	$webapp_base = "/srv",
+    $add_default_repo_layouts = "true"
 ){
-# configuration	
+
+  # Include all build fragments.
+  class { 'artifactory::build::backups': }
+  class { 'artifactory::build::layouts': }
+  class { 'artifactory::build::locals': }
+  class { 'artifactory::build::remotes': }
+  class { 'artifactory::build::virtuals': }
+
+  class { 'artifactory::config':
+    add_default_repo_layouts => $add_default_repo_layouts
+  }
+
+  # Finally, the service that composes fragments.
+  class { 'artifactory::service': }
+
+
+  # configuration
 	$zip = "artifactory-${version}.zip"
 	$war = "atlassian-bamboo-${version}.war"
 	$download_url = "http://sourceforge.net/projects/artifactory/files/artifactory/${version}/${zip}/download"
@@ -93,4 +110,5 @@ class artifactory(
 		service_require => [File['artifactory-war'], File[$artifactory_home]],
 		require => Class["tomcat"],
 	}
+
 }

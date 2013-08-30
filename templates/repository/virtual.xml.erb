@@ -1,0 +1,14 @@
+<virtualRepository>
+  <key><%= @key %></key>
+  <description><%= @description %></description>
+  <includesPattern><%= @includes %></includesPattern>
+  <repoLayoutRef><%= @layout %></repoLayoutRef>
+  <enableNuGetSupport>false</enableNuGetSupport>
+  <artifactoryRequestsCanRetrieveRemoteArtifacts><%= @artifactory_requests_can_retrieve_remote_artifacts %></artifactoryRequestsCanRetrieveRemoteArtifacts>
+  <repositories>
+    <% @repositories_ref.each do |ref| -%>
+    <repositoryRef><%= ref %></repositoryRef>
+    <% end -%>
+  </repositories>
+  <pomRepositoryReferencesCleanupPolicy><%= @pom_repository_references_cleanup_policy %></pomRepositoryReferencesCleanupPolicy>
+</virtualRepository>
