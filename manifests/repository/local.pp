@@ -10,8 +10,8 @@ define artifactory::repository::local (
     $max_snapshots  = '0') {
 
   File {
-    owner  => 'root',
-    group  => 'root',
+    owner  => "${artifactory::user}",
+    group  => "${artifactory::user}",
     mode   => '0644',
   }
 

@@ -4,8 +4,8 @@ class artifactory::config(
 ) {
 
   File {
-    owner => 'root',
-    group => 'root',
+    owner => "${artifactory::user}",
+    group => "${artifactory::user}",
     mode  => '0644',
   }
 

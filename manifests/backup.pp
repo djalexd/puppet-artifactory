@@ -41,8 +41,8 @@ define artifactory::backup(
  ) {
 
   File {
-     owner  => 'root',
-     group  => 'root',
+     owner  => "${artifactory::user}",
+     group  => "${artifactory::user}",
      mode   => '0644',
   }
 

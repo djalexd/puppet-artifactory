@@ -46,8 +46,8 @@ define artifactory::repository::remote(
   $socket_timeout_millis                 = '15000') {
 
   File {
-    owner  => 'root',
-    group  => 'root',
+    owner  => "${artifactory::user}",
+    group  => "${artifactory::user}",
     mode   => '0644',
   }
 

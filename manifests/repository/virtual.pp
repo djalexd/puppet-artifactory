@@ -28,8 +28,8 @@ define artifactory::repository::virtual(
   $pom_repository_references_cleanup_policy           = 'discard_active_reference') {
 
   File {
-    owner  => 'root',
-    group  => 'root',
+    owner  => "${artifactory::user}",
+    group  => "${artifactory::user}",
     mode   => '0644',
   }
 

@@ -22,8 +22,8 @@ define artifactory::repo_layout(
   $file_integration_revision_reg_exp   = '.+') {
 
   File {
-    owner  => 'root',
-    group  => 'root',
+    owner  => "${artifactory::user}",
+    group  => "${artifactory::user}",
     mode   => '0644',
   }
 
