@@ -37,7 +37,6 @@ class artifactory(
   # Finally, the service that composes fragments.
   class { 'artifactory::service': }
 
-
   # configuration
 	$zip = "artifactory-${version}.zip"
 	$war = "atlassian-bamboo-${version}.war"

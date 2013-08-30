@@ -10,6 +10,11 @@ class artifactory::service inherits artifactory::params {
   # indexers and some default values (that are not handled
   # yet, like repo layouts, security).
   exec { 'build_config':
-      command => "/bin/cat ${prefix} > ${artifactory_cfg_file} && /bin/cat ${artifactory_temp_dir}/*.fragment >> ${artifactory_cfg_file} && /bin/cat ${suffix} >> ${artifactory_cfg_file}"
+      command => "/bin/cat ${prefix} > ${artifactory_cfg_file} && /bin/cat ${artifactory_temp_dir}/*.fragment >> ${artifactory_cfg_file} && /bin/cat ${suffix} >> ${artifactory_cfg_file}",
+      notify => Exec['install_config'],
+  }
+
+  exec { 'install_config':
+      command => "/bin/cp ${artifactory_cfg_file} ${artifactory::artifactory_home}/etc"
   }
 }
